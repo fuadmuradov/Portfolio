@@ -15,5 +15,7 @@ namespace Portfolio.Models
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<About> Abouts { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
     }
 }

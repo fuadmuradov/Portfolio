@@ -94,6 +94,50 @@ namespace Portfolio.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("Portfolio.Models.DbTables.Picture", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Pictures");
+                });
+
+            modelBuilder.Entity("Portfolio.Models.DbTables.Project", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("BuildDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Projects");
+                });
+
             modelBuilder.Entity("Portfolio.Models.DbTables.Skill", b =>
                 {
                     b.Property<int>("Id")
@@ -134,6 +178,22 @@ namespace Portfolio.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("Portfolio.Models.DbTables.Picture", b =>
+                {
+                    b.HasOne("Portfolio.Models.DbTables.Project", "Project")
+                        .WithMany("Pictures")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("Portfolio.Models.DbTables.Project", b =>
+                {
+                    b.Navigation("Pictures");
                 });
 #pragma warning restore 612, 618
         }
