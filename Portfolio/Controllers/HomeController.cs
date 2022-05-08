@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Portfolio.Models;
+using Portfolio.Models.DbTables;
 using Portfolio.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -27,16 +29,18 @@ namespace Portfolio.Controllers
                 About = context.Abouts.First(),
                 Contact = context.Contacts.First(),
                 Skills = context.Skills.ToList(),
-                Testimonials = context.Testimonials.ToList()
-
+                Testimonials = context.Testimonials.ToList(),
+                Projects = context.Projects.Include(x => x.Pictures).ToList()
+                
             };
 
             return View(mainVM);
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            return View();
+            Project project = context.Projects.Include(x=>x.Pictures).FirstOrDefault(x => x.Id == id);
+            return View(project);
         }
 
         [HttpPost]
@@ -56,6 +60,7 @@ namespace Portfolio.Controllers
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
             smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
             smtp.Credentials = new NetworkCredential("hrmshrms2000@gmail.com", "hrms12345");
             smtp.Send(mail);
 

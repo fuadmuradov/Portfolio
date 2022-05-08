@@ -1,0 +1,65 @@
+﻿@model About
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card center-block mb-5" style="width:50rem;">
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Birthday" class="font-weight-600"></label>
+                            <input asp-for="@Model.Birthday" class="form-control" id="exampleFormControlInput1" >
+                            <span asp-validation-for="Birthday">  </span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Website" class="font-weight-600"></label>
+                            <input asp-for="@Model.Website" class="form-control" id="exampleFormControlInput1" >
+                            <span asp-validation-for="Website">  </span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Phone" class="font-weight-600"></label>
+                            <input asp-for="@Model.Phone" class="form-control" id="exampleFormControlInput1" >
+                            <span asp-validation-for="Phone">  </span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Description" class="font-weight-600"></label>
+                            <input asp-for="@Model.Description" class="form-control" id="exampleFormControlInput1">
+                            <span asp-validation-for="Description">  </span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.City" class="font-weight-600"></label>
+                            <input asp-for="@Model.City" class="form-control" id="exampleFormControlInput1">
+                            <span asp-validation-for="City">  </span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Age" class="font-weight-600"></label>
+                            <input asp-for="@Model.Age" class="form-control" id="exampleFormControlInput1">
+                            <span asp-validation-for="Age">  </span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Degree" class="font-weight-600"></label>
+                            <input asp-for="@Model.Degree" class="form-control" id="exampleFormControlInput1">
+                            <span asp-validation-for="Degree">  </span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Email" class="font-weight-600"></label>
+                            <input asp-for="@Model.Email" class="form-control" id="exampleFormControlInput1">
+                            <span asp-validation-for="Email">  </span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Frelance" class="font-weight-600"></label>
+                            <input asp-for="@Model.Frelance" class="form-control" id="exampleFormControlInput1">
+                            <span asp-validation-for="Frelance">  </span>
+                        </div>
+                        <button type="submit" class="btn btn-success" onclick="return confirm('Are you sure you want to Update?')">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

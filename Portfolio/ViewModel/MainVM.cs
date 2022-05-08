@@ -12,5 +12,6 @@ namespace Portfolio.ViewModel
         public List<Skill> Skills { get; set; }
         public Contact Contact { get; set; }
         public List<Testimonial> Testimonials { get; set; }
+        public List<Project> Projects { get; set; }
     }
 }

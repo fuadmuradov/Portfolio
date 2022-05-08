@@ -101,6 +101,9 @@ namespace Portfolio.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<bool>("IsMain")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -127,10 +130,16 @@ namespace Portfolio.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Section")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

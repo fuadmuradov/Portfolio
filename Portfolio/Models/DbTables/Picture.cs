@@ -8,7 +8,8 @@ namespace Portfolio.Models.DbTables
     public class Picture
     {
         public int Id { get; set; }
-        public String Name { get; set; }
+        public string Name { get; set; }
+        public bool IsMain { get; set; }
         public int ProjectId { get; set; }
         public Project Project { get; set; }
 

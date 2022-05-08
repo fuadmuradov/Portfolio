@@ -12,6 +12,8 @@ namespace Portfolio.Models.DbTables
         public string Name { get; set; }
         public DateTime BuildDate { get; set; }
         public string ProjectURL { get; set; }
+        public string Description { get; set; }
+        public string Section { get; set; }
         public List<Picture> Pictures { get; set; }
 
     }
