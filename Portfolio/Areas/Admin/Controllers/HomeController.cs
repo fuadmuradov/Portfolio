@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Models;
 using Portfolio.Models.DbTables;
@@ -12,16 +13,15 @@ namespace Portfolio.Areas.Admin.Controllers
 
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly PortContext context;
-        private readonly IWebHostEnvironment webHost;
 
-        public HomeController(PortContext context, IWebHostEnvironment webHost)
+        public HomeController(PortContext context)
         {
             this.context = context;
-            this.webHost = webHost;
-        }
+       }
         public IActionResult About()
         {
             About about = context.Abouts.First();
@@ -58,7 +58,8 @@ namespace Portfolio.Areas.Admin.Controllers
             return View(contact);
         }
 
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Contact(Contact contact)
         {
             if (!ModelState.IsValid) return View(contact);
@@ -78,6 +79,62 @@ namespace Portfolio.Areas.Admin.Controllers
 
             return View();
         }
+
+
+        public IActionResult Skill()
+        {
+            List<Skill> skills = context.Skills.ToList();
+            return View(skills);
+        }
+        public IActionResult SkillDelete(int id)
+        {
+            Skill skill = context.Skills.FirstOrDefault(x => x.Id == id);
+            if (skill == null) return NotFound();
+            context.Skills.Remove(skill);
+            context.SaveChanges();
+
+            return LocalRedirect("/admin/Home/Skill/");
+        }
+        
+        public IActionResult SkillCreate()
+        {
+
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SkillCreate(Skill skill)
+        {
+            if (!ModelState.IsValid) return View();
+            context.Skills.Add(skill);
+            await context.SaveChangesAsync();
+            return LocalRedirect("/admin/Home/Skill/");
+        }
+
+        public IActionResult SkillUpdate(int id)
+        {
+            Skill skill = context.Skills.FirstOrDefault(x => x.Id == id);
+
+            return View(skill);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SkillUpdate(Skill skill)
+        {
+            if (!ModelState.IsValid) return View();
+            Skill existskill = context.Skills.FirstOrDefault(x => x.Id == skill.Id);
+            existskill.Name = skill.Name;
+            existskill.Percent = skill.Percent;
+            await context.SaveChangesAsync();
+            return LocalRedirect("/admin/Home/Skill/");
+        }
+
+
+      
+
 
 
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Models.DbTables;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Models
 {
-    public class PortContext:DbContext
+    public class PortContext:IdentityDbContext<AppUser>
     {
         public PortContext(DbContextOptions<PortContext> options):base(options) {}
 

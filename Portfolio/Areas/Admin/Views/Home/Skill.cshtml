@@ -1,0 +1,37 @@
+﻿@model List<Skill>
+<!--Table-->
+<div class="card-body">
+    <div class=table-responsive>
+        <!--<table class="table table-sm table-nowrap card-table">-->
+        <label class="font-weight-600">Programming Skill</label>
+        <table class="table display table-bordered table-striped table-hover bg-white m-0 card-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Percentage</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Name</td>
+                        <td>
+                            @item.Percent
+                        </td>
+
+                        <td>
+                            <a asp-area="admin" asp-controller="Home" asp-action="SkillDelete" asp-route-id="@item.Id" class="btn btn-danger-soft btn-sm" onclick="return confirm('Are you sure you want to delete?')"><i class="far fa-trash-alt"></i></a>
+                            <a asp-area="admin" asp-controller="Home" asp-action="SkillUpdate" asp-route-id="@item.Id" class="btn btn-success-soft btn-sm ml-1"><i class="far fa-edit"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-area="admin" asp-controller="Home" asp-action="SkillCreate"> <button type="button" class="btn btn-secondary">Add New Skill</button></a>
+    </div>
+</div>
+
+<!--End Table-->

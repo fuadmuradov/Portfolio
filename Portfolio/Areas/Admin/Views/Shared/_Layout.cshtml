@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
     <meta name="author" content="Bdtask">
-    <title>EduHome Admin Panel</title>
+    <title>Portfolio Admin Panel</title>
     <!-- App favicon -->
     <link rel="shortcut icon" href="~/admin/assets/dist/img/favicon.png">
     <!--Global Styles(used by all pages)-->
@@ -49,11 +49,9 @@
         <nav class="sidebar sidebar-bunker">
             <div class="sidebar-header">
                 <!--<a href="index.html" class="logo"><span>bd</span>task</a>-->
-                <a href="index-2.html" class="logo"><img src="~/assets/images/logo.png" alt=""></a>
             </div><!--/.sidebar header-->
             <div class="profile-element d-flex align-items-center flex-shrink-0">
                 <div class="avatar online">
-                    <img src="~/assets/images/gravatar.png" class="img-fluid rounded-circle" alt="">
                 </div>
                 <div class="profile-text">
                     @if (!User.Identity.IsAuthenticated)
@@ -79,96 +77,28 @@
                     <ul class="metismenu">
                         <li class="nav-label">Main Menu</li>
                         <li class="mm-active">
-                            <a class="has-arrow material-ripple" href="#">
+                            <a class="has-arrow material-ripple" asp-area="Admin" asp-controller="Home" asp-action="About">
                                 <i class="typcn typcn-home-outline mr-2"></i>
-                                Home
+                             About   
                             </a>
-                            <ul class="nav-second-level">
-                                <li><a asp-area="Admin" asp-controller="Home" asp-action="Index">Slider</a></li>
-                                <li><a asp-area="Admin" asp-controller="Home" asp-action="Create">Add Slider</a></li>
-                                <li><a asp-area="Admin" asp-controller="Home" asp-action="Notice">Notice</a></li>
-                                <li><a asp-area="Admin" asp-controller="Home" asp-action="NoticeSecond">Second part Notice</a></li>
-                            </ul>
+                           
                         </li>
                         <li>
-                            <a class="has-arrow material-ripple" href="#">
+                            <a class="has-arrow material-ripple" asp-area="Admin" asp-controller="Home" asp-action="Contact">
                                 <i class="typcn typcn-chart-pie-outline mr-2"></i>
-                                About
+                                Contact
                             </a>
-                            <ul class="nav-second-level">
-                                <li><a asp-area="Admin" asp-controller="Home" asp-action="About">About</a></li>
-                                <li><a asp-area="Admin" asp-controller="Testimonial" asp-action="Index">Testimonial</a></li>
 
-
-                            </ul>
                         </li>
                         <li>
-                            <a class="has-arrow material-ripple" href="#">
+                            <a class="has-arrow material-ripple" asp-area="Admin" asp-controller="Home" asp-action="Skill">
                                 <i class="typcn typcn-mail mr-2"></i>
-                                COURSE
+                                Skill
                             </a>
                             <ul class="nav-second-level">
-                                <li><a asp-area="Admin" asp-controller="Course" asp-action="CoursePage">Courses</a></li>
-                                <li><a asp-area="Admin" asp-controller="Course" asp-action="Createcourse">Add Course</a></li>
-                                <li><a asp-area="Admin" asp-controller="Course" asp-action="Category">Categories</a></li>
-
+                                <li><a asp-area="Admin" asp-controller="Home" asp-action="CoursePage">SkillCreate</a></li>
                             </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow material-ripple" href="#">
-                                <i class="typcn typcn-archive mr-2"></i>
-                                Event
-                            </a>
-                            <ul class="nav-second-level">
-                                <li><a asp-area="Admin" asp-controller="Event" asp-action="Index">Event</a></li>
-                                <li><a asp-area="Admin" asp-controller="Event" asp-action="Createevent">Create Event</a></li>
-                                <li><a asp-area="Admin" asp-controller="Event" asp-action="Speaker">Speakers</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow material-ripple" href="#">
-                                <i class="typcn typcn-clipboard mr-2"></i>
-                                Teacher
-                            </a>
-                            <ul class="nav-second-level">
-                                <li><a asp-area="Admin" asp-controller="Teacher" asp-action="Index">Teachers</a></li>
-                                <li><a asp-area="Admin" asp-controller="Teacher" asp-action="CreateTeacher">Create Teacher</a></li>
-
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow material-ripple" href="#">
-                                <i class="typcn typcn-coffee mr-2"></i>
-                                Blog
-                            </a>
-                            <ul class="nav-second-level">
-                                <li><a asp-area="Admin" asp-controller="Blog" asp-action="Index">Blogs</a></li>
-                                <li><a asp-area="Admin" asp-controller="Blog" asp-action="CreateBlog">Add Blog</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow material-ripple" href="#">
-                                <i class="typcn typcn-world-outline mr-2"></i>
-                                Settings
-                            </a>
-                            <ul class="nav-second-level">
-                                <li><a asp-area="Admin" asp-controller="Setting" asp-action="Index">Setting</a></li>
-
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a class="has-arrow material-ripple" href="#">
-                                <i class="typcn typcn-book mr-2"></i>
-                                Authentication
-                            </a>
-                            <ul class="nav-second-level">
-                                <li><a asp-controller="Account" asp-action="Login" asp-area="Admin">Login</a></li>
-                                <li><a asp-controller="Account" asp-action="Register" asp-area="Admin">Register</a></li>
-                                <li><a asp-controller="Account" asp-action="Edit" asp-area="Admin">Profile</a></li>
-                            </ul>
-                        </li>
-
+                        </li>  
                     </ul>
                 </nav>
             </div><!-- sidebar-body -->
@@ -211,7 +141,6 @@
 
 
                                     </div><!--/.notification -->
-                                    <div class="dropdown-footer"><a asp-controller="Notification" asp-action="Index" asp-area="Admin">View All Notifications</a></div>
                                 </div><!--/.dropdown-menu -->
                             </li><!--/.dropdown-->
                             <li class="nav-item dropdown user-menu">
@@ -224,22 +153,10 @@
                                         <a href="#" class="header-arrow"><i class="icon ion-md-arrow-back"></i></a>
                                     </div>
                                     <div class="user-header">
-                                        <div class="img-user">
-                                            <img src="~/assets/images/gravatar.png" alt="">
-                                        </div><!-- img-user -->
-
-
-
+                                    
                                         <h6>Admin Panel</h6>
 
-
-
-
                                     </div><!-- user-header -->
-                                    <a href="\admin/account/edit" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
-                                    <a href="\admin/account/edit" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
-                                    <a href="\admin/account/AllAdmin" class="dropdown-item"><i class="typcn typcn-arrow-shuffle"></i>Manage Admins</a>
-                                    <a href="\admin/account/Register" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Register Admin</a>
                                     <a href="\admin/account/logout" class="dropdown-item"><i class="typcn typcn-key-outline"></i> Sign Out</a>
                                 </div><!--/.dropdown-menu -->
                             </li>
@@ -256,16 +173,13 @@
                 <!--Content Header (Page header)-->
                 <div class="content-header row align-items-center m-0">
                     <nav aria-label="breadcrumb" class="col-sm-4 order-sm-last mb-3 mb-sm-0 p-0 ">
-                        <ol class="breadcrumb d-inline-flex font-weight-600 fs-13 bg-white mb-0 float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
+                        
                     </nav>
                     <div class="col-sm-8 header-title p-0">
                         <div class="media">
                             <div class="header-icon text-success mr-3"><i class="typcn typcn-spiral"></i></div>
                             <div class="media-body">
-                                <h1 class="font-weight-bold">EduHome Admin Panel</h1>
+                                <h1 class="font-weight-bold">Portfolio Admin Panel</h1>
 
                             </div>
                         </div>
