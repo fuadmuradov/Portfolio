@@ -40,6 +40,7 @@ namespace Portfolio.Controllers
         public IActionResult Details(int id)
         {
             Project project = context.Projects.Include(x=>x.Pictures).FirstOrDefault(x => x.Id == id);
+            if (project == null) return NotFound();
             return View(project);
         }
 
